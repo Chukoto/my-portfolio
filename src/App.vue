@@ -3,6 +3,7 @@
     <Header />
     <SideNav />
     <v-main>
+      <div style="height: 1000px"></div>
       <v-container>
         <router-view />
       </v-container>
