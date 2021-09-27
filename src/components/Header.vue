@@ -1,5 +1,5 @@
 <template>
-  <div style="position: fixed; width: 100%;">
+  <div>
     <v-toolbar dark color="light-blue accent-3">
       <v-toolbar-title>My Portfolio</v-toolbar-title>
 
