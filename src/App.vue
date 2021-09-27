@@ -1,19 +1,24 @@
 <template>
   <v-app>
+    <Header />
+    <SideNav />
     <v-main>
-      <Header />
-      <div style="height: 1000px"></div>
+      <v-container>
+        <router-view />
+      </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script>
 import Header from '@/components/Header';
+import SideNav from '@/components/SideNav';
 export default {
   name: 'App',
 
   components: {
     Header,
+    SideNav,
   },
 
   data: () => ({
