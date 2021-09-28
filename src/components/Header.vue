@@ -24,4 +24,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+v-toolbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  z-index: 199;
+}
+</style>

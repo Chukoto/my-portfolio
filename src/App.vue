@@ -3,7 +3,7 @@
     <Header />
     <SideNav />
     <v-main>
-      <div style="height: 1000px"></div>
+      <Home />
       <v-container>
         <router-view />
       </v-container>
@@ -14,12 +14,14 @@
 <script>
 import Header from '@/components/Header';
 import SideNav from '@/components/SideNav';
+import Home from '@/components/Home';
 export default {
   name: 'App',
 
   components: {
     Header,
     SideNav,
+    Home,
   },
 
   data: () => ({

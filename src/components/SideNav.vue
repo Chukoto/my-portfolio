@@ -1,5 +1,5 @@
 <template>
-  <v-sheet height="400" class="overflow-hidden">
+  <v-sheet class="overflow-hidden">
     <v-navigation-drawer
       v-model="$store.state.drawer"
       absolute
