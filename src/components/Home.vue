@@ -1,28 +1,37 @@
 <template>
-  <div id="homeWrapper">
+  <div id="home-wrapper">
+    <div>
+      <transition>
+        <div id="bright-switcher" v-if="show"></div>
+      </transition>
+      <div id="bright-adjuster" :style="{ opacity: opacity }"></div>
+    </div>
     <div id="back">
-      <div id="remoconBody">
-        <div id="powerBtn">
+      <div id="remocon-body">
+        <button id="power-btn" @click="show = !show">
           <v-list-item-icon>
             <v-icon :size="sizes['large']">mdi-power</v-icon>
           </v-list-item-icon>
-        </div>
-        <div id="incrBtn">
+        </button>
+        <button id="incr-btn" @click="increaseBrightness">
           <v-list-item-icon>
             <v-icon :size="sizes['large']">mdi-chevron-up</v-icon>
           </v-list-item-icon>
-        </div>
-        <div id="decrBtn">
+        </button>
+        <button id="decr-btn" @click="decreaseBrightness">
           <v-list-item-icon>
             <v-icon :size="sizes['large']">mdi-chevron-down</v-icon>
           </v-list-item-icon>
-        </div>
-        <div id="incrMaxBtn">
+        </button>
+        <button id="incr-max-btn" @click="increaseMaxBrightness">
           <v-list-item-icon>
             <v-icon :size="sizes['medium']">mdi-brightness-5</v-icon>
           </v-list-item-icon>
-        </div>
+        </button>
       </div>
+    </div>
+    <div>
+      テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト
     </div>
   </div>
 </template>
@@ -31,6 +40,8 @@
 export default {
   data() {
     return {
+      show: false,
+      opacity: 0,
       sizes: {
         'x-small': '1rem',
         small: '2rem',
@@ -41,12 +52,51 @@ export default {
       },
     };
   },
+  methods: {
+    increaseBrightness() {
+      if (this.opacity >= 0.1 && this.show === false) {
+        this.opacity -= 0.1;
+        console.log(this.opacity);
+      }
+    },
+    decreaseBrightness() {
+      if (this.opacity < 0.7 && this.show === false) {
+        this.opacity += 0.1;
+        console.log(this.opacity);
+      }
+    },
+    increaseMaxBrightness() {
+      if (this.opacity > 0 && this.show === false) {
+        this.opacity = 0;
+      }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-#homeWrapper {
+#home-wrapper {
   margin-top: 3rem;
+  position: relative;
+}
+
+#bright-switcher,
+#bright-adjuster {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  pointer-events: none;
+}
+
+.v-leave-active,
+.v-enter-active {
+  transition: opacity 0.5s;
+}
+
+.v-enter,
+.v-leave-to {
+  opacity: 0;
 }
 
 #back {
@@ -57,8 +107,8 @@ export default {
   background-color: aquamarine;
 }
 
-#remoconBody {
-  width: 21rem;
+#remocon-body {
+  width: 18rem;
   height: 30rem;
   background-color: #eee;
   position: relative;
@@ -71,23 +121,23 @@ export default {
   box-shadow: 8px 16px 16px gray, 24px 24px 16px #fff inset;
 }
 
-#powerBtn {
+#power-btn {
   width: 6rem;
   height: 6rem;
   background-color: #c0f86a;
   -moz-border-radius: 20%;
   border-radius: 20%;
   position: absolute;
-  top: 5rem;
-  left: 3rem;
-  padding-left: 8px;
+  top: 4rem;
+  left: 2rem;
+  padding-left: 10px;
   &:active {
-    top: 5.2rem;
+    top: 4.2rem;
   }
 }
 
-#incrBtn,
-#decrBtn {
+#incr-btn,
+#decr-btn {
   width: 8rem;
   height: 6rem;
   background-color: #f8f66a;
@@ -96,25 +146,25 @@ export default {
   padding-left: 24px;
 }
 
-#incrBtn {
+#incr-btn {
   position: absolute;
   top: 11rem;
-  right: 3rem;
+  right: 2rem;
   &:active {
     top: 11.2rem;
   }
 }
 
-#decrBtn {
+#decr-btn {
   position: absolute;
-  top: 19rem;
-  right: 3rem;
+  top: 21rem;
+  right: 2rem;
   &:active {
-    top: 19.2rem;
+    top: 21.2rem;
   }
 }
 
-#incrMaxBtn {
+#incr-max-btn {
   width: 6rem;
   height: 6rem;
   background-color: #f8f66a;
@@ -122,21 +172,21 @@ export default {
   -moz-border-radius: 50%;
   border-radius: 50%;
   position: absolute;
-  top: 15rem;
-  left: 3rem;
-  padding-left: 16px;
+  top: 16rem;
+  left: 2rem;
+  padding-left: 18px;
   &:active {
-    top: 15.2rem;
+    top: 16.2rem;
   }
 }
 
 /* ========================
 ボタンの影 まとめて管理
 ======================== */
-#powerBtn,
-#incrBtn,
-#decrBtn,
-#incrMaxBtn {
+#power-btn,
+#incr-btn,
+#decr-btn,
+#incr-max-btn {
   -webkit-box-shadow: 8px 4px 3px gray, 1px 1px 1px #fff inset;
   -moz-box-shadow: 8px 4px 3px gray, 1px 1px 1px #fff inset;
   box-shadow: 8px 4px 3px gray, 1px 1px 1px #fff inset;
