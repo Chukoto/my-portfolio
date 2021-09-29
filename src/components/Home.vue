@@ -7,7 +7,10 @@
       <div id="bright-adjuster" :style="{ opacity: opacity }"></div>
     </div>
     <div id="back">
-      <h1 class="text-center">HaruLab</h1>
+      <h1 class="text-center grey--text text--darken-5">
+        Haruki's room
+      </h1>
+
       <div id="remocon-body">
         <button id="power-btn" @click="show = !show">
           <v-list-item-icon>
@@ -57,13 +60,11 @@ export default {
     increaseBrightness() {
       if (this.opacity >= 0.1 && this.show === false) {
         this.opacity -= 0.1;
-        console.log(this.opacity);
       }
     },
     decreaseBrightness() {
       if (this.opacity < 0.7 && this.show === false) {
         this.opacity += 0.1;
-        console.log(this.opacity);
       }
     },
     increaseMaxBrightness() {
@@ -76,6 +77,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h1 {
+  font-size: 10vw;
+}
+
 #home-wrapper {
   margin-top: 3rem;
   position: relative;
@@ -102,7 +107,7 @@ export default {
 
 #back {
   width: 100%;
-  height: 50rem;
+  height: 100rem;
   margin: 0 auto;
   padding-top: 10rem;
   background-color: aquamarine;
