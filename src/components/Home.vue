@@ -7,25 +7,29 @@
       <div id="bright-adjuster" :style="{ opacity: opacity }"></div>
     </div>
     <div id="back">
+      <h1 class="text-center grey--text text--darken-5">
+        Haruki's room
+      </h1>
+
       <div id="remocon-body">
         <button id="power-btn" @click="show = !show">
           <v-list-item-icon>
-            <v-icon :size="sizes['large']">mdi-power</v-icon>
+            <v-icon :size="sizes['default']">mdi-power</v-icon>
           </v-list-item-icon>
         </button>
         <button id="incr-btn" @click="increaseBrightness">
           <v-list-item-icon>
-            <v-icon :size="sizes['large']">mdi-chevron-up</v-icon>
+            <v-icon :size="sizes['default']">mdi-chevron-up</v-icon>
           </v-list-item-icon>
         </button>
         <button id="decr-btn" @click="decreaseBrightness">
           <v-list-item-icon>
-            <v-icon :size="sizes['large']">mdi-chevron-down</v-icon>
+            <v-icon :size="sizes['default']">mdi-chevron-down</v-icon>
           </v-list-item-icon>
         </button>
         <button id="incr-max-btn" @click="increaseMaxBrightness">
           <v-list-item-icon>
-            <v-icon :size="sizes['medium']">mdi-brightness-5</v-icon>
+            <v-icon :size="sizes['small']">mdi-brightness-5</v-icon>
           </v-list-item-icon>
         </button>
       </div>
@@ -56,13 +60,11 @@ export default {
     increaseBrightness() {
       if (this.opacity >= 0.1 && this.show === false) {
         this.opacity -= 0.1;
-        console.log(this.opacity);
       }
     },
     decreaseBrightness() {
       if (this.opacity < 0.7 && this.show === false) {
         this.opacity += 0.1;
-        console.log(this.opacity);
       }
     },
     increaseMaxBrightness() {
@@ -75,6 +77,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h1 {
+  font-size: 10vw;
+}
+
 #home-wrapper {
   margin-top: 3rem;
   position: relative;
@@ -101,15 +107,15 @@ export default {
 
 #back {
   width: 100%;
-  height: 50rem;
+  height: 100rem;
   margin: 0 auto;
   padding-top: 10rem;
   background-color: aquamarine;
 }
 
 #remocon-body {
-  width: 18rem;
-  height: 30rem;
+  width: 13rem;
+  height: 23rem;
   background-color: #eee;
   position: relative;
   -webkit-border-radius: 10%;
@@ -122,24 +128,24 @@ export default {
 }
 
 #power-btn {
-  width: 6rem;
-  height: 6rem;
+  width: 4rem;
+  height: 4rem;
   background-color: #c0f86a;
   -moz-border-radius: 20%;
   border-radius: 20%;
   position: absolute;
-  top: 4rem;
-  left: 2rem;
+  top: 3.5rem;
+  left: 1.5rem;
   padding-left: 10px;
   &:active {
-    top: 4.2rem;
+    top: 3.7rem;
   }
 }
 
 #incr-btn,
 #decr-btn {
-  width: 8rem;
-  height: 6rem;
+  width: 6rem;
+  height: 4rem;
   background-color: #f8f66a;
   -moz-border-radius: 20%;
   border-radius: 20%;
@@ -148,35 +154,35 @@ export default {
 
 #incr-btn {
   position: absolute;
-  top: 11rem;
-  right: 2rem;
+  top: 8rem;
+  right: 1.5rem;
   &:active {
-    top: 11.2rem;
+    top: 8.2rem;
   }
 }
 
 #decr-btn {
   position: absolute;
-  top: 21rem;
-  right: 2rem;
+  top: 15rem;
+  right: 1.5rem;
   &:active {
-    top: 21.2rem;
+    top: 15.2rem;
   }
 }
 
 #incr-max-btn {
-  width: 6rem;
-  height: 6rem;
+  width: 4rem;
+  height: 4rem;
   background-color: #f8f66a;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
   position: absolute;
-  top: 16rem;
-  left: 2rem;
+  top: 11.5rem;
+  left: 1.5rem;
   padding-left: 18px;
   &:active {
-    top: 16.2rem;
+    top: 11.7rem;
   }
 }
 
