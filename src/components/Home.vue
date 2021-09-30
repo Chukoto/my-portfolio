@@ -8,10 +8,10 @@
     </div>
     <div id="back">
       <h1 class="text-center grey--text text--darken-5">
-        Haruki's room
+        <div id="first-text">Haruki's room</div>
       </h1>
 
-      <div id="remocon-body">
+      <div id="remocon-body" class="animation-delay fade-up">
         <button id="power-btn" @click="show = !show">
           <v-list-item-icon>
             <v-icon :size="sizes['default']">mdi-power</v-icon>
@@ -73,12 +73,38 @@ export default {
       }
     },
   },
+  mounted: function() {
+    const target = this.$el.querySelector('#first-text');
+    let text = target.textContent;
+    target.textContent = '';
+    const words = text.split('');
+    const textArray = [];
+
+    for (let i = 0; i < words.length; i++) {
+      const word = words[i];
+      if (word === ' ') {
+        textArray.push(' ');
+      } else {
+        textArray.push(
+          '<span><span style="animation-delay: ' +
+            i * 0.1 +
+            's;">' +
+            word +
+            '</span></span>'
+        );
+      }
+    }
+
+    textArray.forEach((element) => {
+      target.innerHTML += element;
+    });
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 h1 {
-  font-size: 10vw;
+  font-size: 8vw;
 }
 
 #home-wrapper {
@@ -187,7 +213,7 @@ h1 {
 }
 
 /* ========================
-ボタンの影 まとめて管理
+ボタンの影 まとめて管理 ここから
 ======================== */
 #power-btn,
 #incr-btn,
@@ -201,4 +227,69 @@ h1 {
     box-shadow: 1px 1px 1px #fff, 4px 2px 3px gray inset;
   }
 }
+/* ========================
+ボタンの影 まとめて管理 ここまで
+======================== */
+</style>
+
+<style lang="scss">
+/* ========================
+文字アニメ ここから
+======================== */
+@keyframes showText {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(25%);
+  }
+}
+
+#first-text span {
+  display: inline-block;
+}
+
+#first-text > span {
+  overflow: hidden;
+}
+
+#first-text > span > span {
+  display: inline-block;
+  animation: showText 1s backwards;
+  transform: translateY(25%);
+}
+/* ========================
+文字アニメ ここまで
+======================== */
+
+/* ========================
+リモコン登場アニメ ここから
+======================== */
+.animation-delay {
+  animation-delay: 1s;
+}
+
+.fade-up {
+  animation-name: fadeUpAnime;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+@keyframes fadeUpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================
+リモコン登場アニメ ここから
+======================== */
 </style>
