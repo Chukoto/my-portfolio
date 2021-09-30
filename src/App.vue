@@ -3,9 +3,9 @@
     <Header />
     <SideNav />
     <v-main>
-      <Home />
+      <!-- <Home /> -->
       <v-container>
-        <About />
+        <router-view />
       </v-container>
     </v-main>
   </v-app>
@@ -14,16 +14,14 @@
 <script>
 import Header from '@/components/Header';
 import SideNav from '@/components/SideNav';
-import Home from '@/components/Home';
-import About from '@/components/About';
+// import Home from '@/components/Home';
 export default {
   name: 'App',
 
   components: {
     Header,
     SideNav,
-    Home,
-    About,
+    // Home,
   },
 
   data: () => ({
