@@ -8,7 +8,7 @@
     </div>
     <div id="back">
       <h1 class="text-center grey--text text--darken-5">
-        Haruki's room
+        <div id="first-text">Haruki's room</div>
       </h1>
 
       <div id="remocon-body">
@@ -72,6 +72,28 @@ export default {
         this.opacity = 0;
       }
     },
+  },
+  mounted: function() {
+    const target = this.$el.querySelector('#first-text');
+    let text = target.textContent;
+    target.textContent = '';
+    const words = text.split('');
+    const textArray = [];
+
+    for (let i = 0; i < words.length; i++) {
+      const word = words[i];
+      if (word === ' ') {
+        textArray.push(' ');
+      } else {
+        textArray.push(
+          '<span style="animation-delay: ' + i * 0.1 + 's;">' + word + '</span>'
+        );
+      }
+    }
+
+    textArray.forEach((element) => {
+      target.innerHTML += element;
+    });
   },
 };
 </script>
@@ -187,7 +209,7 @@ h1 {
 }
 
 /* ========================
-ボタンの影 まとめて管理
+ボタンの影 まとめて管理 ここから
 ======================== */
 #power-btn,
 #incr-btn,
@@ -201,4 +223,30 @@ h1 {
     box-shadow: 1px 1px 1px #fff, 4px 2px 3px gray inset;
   }
 }
+/* ========================
+ボタンの影 まとめて管理 ここまで
+======================== */
+</style>
+
+<style lang="scss">
+/* ========================
+文字アニメ ここから
+======================== */
+@keyframes showText {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#first-text span {
+  display: inline-block;
+  animation: showText 3s backwards;
+}
+/* ========================
+文字アニメ ここまで
+======================== */
 </style>
