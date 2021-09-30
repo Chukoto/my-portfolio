@@ -12,7 +12,11 @@
       </h1>
 
       <div id="remocon-body" class="animation-delay fade-up">
-        <button id="power-btn" @click="show = !show">
+        <button
+          id="power-btn"
+          class="pulse-btn"
+          @click="show = !show"
+        >
           <v-list-item-icon>
             <v-icon :size="sizes['default']">mdi-power</v-icon>
           </v-list-item-icon>
@@ -209,6 +213,41 @@ h1 {
   padding-left: 18px;
   &:active {
     top: 11.7rem;
+  }
+}
+
+/* ボタンの波紋 */
+.pulse-btn::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  border: 6px solid #c0f86a;
+  border-radius: 20%;
+  box-sizing: border-box;
+  pointer-events: none;
+  animation: pulsate 2s linear infinite;
+}
+
+.pulse-btn::after {
+  animation-delay: 1s;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    opacity: 1 * 0.5;
+  }
+
+  100% {
+    transform: scale(1 * 1.5);
+    opacity: 0;
   }
 }
 
