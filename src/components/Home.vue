@@ -108,11 +108,14 @@ export default {
 
 <style lang="scss" scoped>
 h1 {
-  font-size: 8vw;
+  font-size: 7vh;
+  margin-top: 50px;
+  word-wrap: break-word;
+  width: auto;
 }
 
 #home-wrapper {
-  margin-top: 3rem;
+  margin-top: 6rem;
   position: relative;
 }
 
@@ -139,7 +142,7 @@ h1 {
   width: 100%;
   height: 100rem;
   margin: 0 auto;
-  padding-top: 10rem;
+  padding-top: 1vw;
   background-color: aquamarine;
 }
 
@@ -271,7 +274,7 @@ h1 {
 ======================== */
 </style>
 
-<style lang="scss">
+<style lang="scss" scoped>
 /* ========================
 文字アニメ ここから
 ======================== */
