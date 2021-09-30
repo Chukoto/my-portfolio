@@ -121,7 +121,7 @@ h1 {
 
 #bright-switcher,
 #bright-adjuster {
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 100%;
   background-color: black;

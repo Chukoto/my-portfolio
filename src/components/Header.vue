@@ -15,8 +15,8 @@
       ></v-app-bar-nav-icon>
       <template v-slot:extension>
         <v-tabs class="hidden-sm-and-down" align-with-title>
-          <v-tab>Home</v-tab>
-          <v-tab>About</v-tab>
+          <v-tab :to="{ name: 'Home' }">Home</v-tab>
+          <v-tab :to="{ name: 'About' }">About</v-tab>
           <v-tab>Skill</v-tab>
           <v-tab>Portfolio</v-tab>
           <v-tab>Contact</v-tab>
