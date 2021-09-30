@@ -5,7 +5,7 @@
     <v-main>
       <Home />
       <v-container>
-        <router-view />
+        <About />
       </v-container>
     </v-main>
   </v-app>
@@ -15,6 +15,7 @@
 import Header from '@/components/Header';
 import SideNav from '@/components/SideNav';
 import Home from '@/components/Home';
+import About from '@/components/About';
 export default {
   name: 'App',
 
@@ -22,6 +23,7 @@ export default {
     Header,
     SideNav,
     Home,
+    About,
   },
 
   data: () => ({
