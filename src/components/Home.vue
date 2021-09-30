@@ -220,6 +220,18 @@ h1 {
 }
 
 /* ボタンの波紋 */
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    opacity: 1 * 0.5;
+  }
+
+  100% {
+    transform: scale(1 * 1.5);
+    opacity: 0;
+  }
+}
+
 .pulse-btn::before {
   content: '';
   display: block;
@@ -242,18 +254,6 @@ h1 {
   animation-delay: 1s;
 }
 
-@keyframes pulsate {
-  0% {
-    transform: scale(1);
-    opacity: 1 * 0.5;
-  }
-
-  100% {
-    transform: scale(1 * 1.5);
-    opacity: 0;
-  }
-}
-
 /* ========================
 ボタンの影 まとめて管理 ここから
 ======================== */
@@ -272,9 +272,7 @@ h1 {
 /* ========================
 ボタンの影 まとめて管理 ここまで
 ======================== */
-</style>
 
-<style lang="scss" scoped>
 /* ========================
 文字アニメ ここから
 ======================== */
@@ -293,11 +291,11 @@ h1 {
   display: inline-block;
 }
 
-#first-text > span {
+#first-text::v-deep span {
   overflow: hidden;
 }
 
-#first-text > span > span {
+#first-text::v-deep span > span {
   display: inline-block;
   animation: showText 1s backwards;
   transform: translateY(25%);
@@ -309,16 +307,6 @@ h1 {
 /* ========================
 リモコン登場アニメ ここから
 ======================== */
-.animation-delay {
-  animation-delay: 1s;
-}
-
-.fade-up {
-  animation-name: fadeUpAnime;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  opacity: 0;
-}
 @keyframes fadeUpAnime {
   from {
     opacity: 0;
@@ -331,6 +319,16 @@ h1 {
   }
 }
 
+.animation-delay {
+  animation-delay: 1s;
+}
+
+.fade-up {
+  animation-name: fadeUpAnime;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
 /* ========================
 リモコン登場アニメ ここから
 ======================== */
