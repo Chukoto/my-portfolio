@@ -1,9 +1,16 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import About from '@/pages/About';
 
 Vue.use(VueRouter);
 
-const routes = [];
+const routes = [
+  {
+    path: '/about',
+    name: 'About',
+    component: About,
+  },
+];
 
 const router = new VueRouter({
   mode: 'history',
