@@ -11,7 +11,7 @@
         <div id="first-text">Haruki's room</div>
       </h1>
 
-      <div id="remocon-body">
+      <div id="remocon-body" class="animation-delay fade-up">
         <button id="power-btn" @click="show = !show">
           <v-list-item-icon>
             <v-icon :size="sizes['default']">mdi-power</v-icon>
@@ -86,7 +86,11 @@ export default {
         textArray.push(' ');
       } else {
         textArray.push(
-          '<span style="animation-delay: ' + i * 0.1 + 's;">' + word + '</span>'
+          '<span><span style="animation-delay: ' +
+            i * 0.1 +
+            's;">' +
+            word +
+            '</span></span>'
         );
       }
     }
@@ -100,7 +104,7 @@ export default {
 
 <style lang="scss" scoped>
 h1 {
-  font-size: 10vw;
+  font-size: 8vw;
 }
 
 #home-wrapper {
@@ -235,18 +239,57 @@ h1 {
 @keyframes showText {
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(100%);
   }
   100% {
     opacity: 1;
+    transform: translateY(25%);
   }
 }
 
 #first-text span {
   display: inline-block;
-  animation: showText 3s backwards;
+}
+
+#first-text > span {
+  overflow: hidden;
+}
+
+#first-text > span > span {
+  display: inline-block;
+  animation: showText 1s backwards;
+  transform: translateY(25%);
 }
 /* ========================
 文字アニメ ここまで
+======================== */
+
+/* ========================
+リモコン登場アニメ ここから
+======================== */
+.animation-delay {
+  animation-delay: 1s;
+}
+
+.fade-up {
+  animation-name: fadeUpAnime;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+@keyframes fadeUpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================
+リモコン登場アニメ ここから
 ======================== */
 </style>
