@@ -38,9 +38,6 @@
         </button>
       </div>
     </div>
-    <div>
-      テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト
-    </div>
   </div>
 </template>
 
@@ -107,15 +104,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h1 {
-  font-size: 7vh;
-  margin-top: 50px;
-  word-wrap: break-word;
-  width: auto;
-}
-
 #home-wrapper {
-  margin-top: 6rem;
   position: relative;
 }
 
@@ -140,10 +129,17 @@ h1 {
 
 #back {
   width: 100%;
-  height: 100rem;
+  height: 40rem;
   margin: 0 auto;
   padding-top: 1vw;
   background-color: aquamarine;
+}
+
+h1 {
+  font-size: 6vh;
+  margin: 40px 0;
+  word-wrap: break-word;
+  width: auto;
 }
 
 #remocon-body {
