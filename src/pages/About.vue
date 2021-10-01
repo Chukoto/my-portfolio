@@ -69,11 +69,20 @@
         </v-row>
       </div>
     </div>
-    <a
-      href="https://icons8.com/icon/ofy7JDxeW34D/kawaii-bread"
-      class="text-caption cyan--text text--lighten-5"
-      >Kawaii Soda icon by Icons8</a
-    >
+
+    <div>
+      <a
+        href="https://icons8.com/icon/ofy7JDxeW34D/kawaii-bread"
+        class="text-caption cyan--text text--lighten-5"
+        >Kawaii Soda icon by Icons8
+      </a>
+      <br />
+      <a
+        href="https://icons8.com/icon/12053/document"
+        class="text-caption cyan--text text--lighten-5"
+        >Document icon by Icons8
+      </a>
+    </div>
   </div>
 </template>
 
