@@ -22,7 +22,7 @@
             <v-tab :to="{ name: 'About' }">About</v-tab>
             <v-tab :to="{ name: 'Skill' }">Skill</v-tab>
             <v-tab>Portfolio</v-tab>
-            <v-tab>Contact</v-tab>
+            <v-tab :to="{ name: 'Contact' }">Contact</v-tab>
           </v-tabs>
           <v-spacer></v-spacer>
         </template>
